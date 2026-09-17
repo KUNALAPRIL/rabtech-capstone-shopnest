@@ -1,8 +1,10 @@
-# ShopNest 🛍️
+# 🛍️ ShopNest
 
-A modern, responsive e-commerce web application built as a production capstone project for the RabTech Academy Full Stack Web Development Internship.
+### Production E-Commerce Web Application
 
-ShopNest demonstrates frontend architecture, REST API integration, authentication simulation, dynamic CRUD operations, persistent client-side state, responsive UI design, and cloud deployment.
+ShopNest is a modern, responsive e-commerce web application developed as the **Production Capstone Project** for the **RabTech Academy Full Stack Web Development Internship**.
+
+The project brings together the major concepts covered during the internship, including semantic HTML, responsive CSS, JavaScript ES6+, REST API integration, authentication simulation, CRUD operations, persistent client-side state, Git/GitHub, and cloud deployment.
 
 ---
 
@@ -12,156 +14,101 @@ ShopNest demonstrates frontend architecture, REST API integration, authenticatio
 Coming soon — Vercel deployment
 
 **GitHub Repository:**  
-Coming soon — GitHub repository
+https://github.com/KUNALAPRIL/rabtech-capstone-shopnest
 
 ---
 
-## 📌 Project Overview
+# 📌 Project Overview
 
-ShopNest is a responsive e-commerce storefront that allows users to browse products, search and filter the catalog, manage a shopping cart, simulate authentication, create orders, and manage products through a client-side administration interface.
+ShopNest provides a complete e-commerce-style shopping experience where users can:
 
-The project combines multiple concepts learned throughout the internship into one complete application.
+- Browse products
+- Search products
+- Filter products by category
+- Sort products
+- Add products to a shopping cart
+- Remove products from the cart
+- Persist cart data
+- Simulate user authentication
+- Checkout products
+- Generate orders
+- View order history
+- Create products
+- Edit products
+- Delete products
+- Maintain application state using browser storage
+
+The project is built with a modular JavaScript architecture so that different responsibilities are separated into individual modules.
 
 ---
 
-## ✨ Features
+# ✨ Key Features
 
-### 🛍️ Product Catalog
+## 🛍️ Product Catalog
 
-- Fetches products from a REST API
+ShopNest retrieves product information from a REST API and dynamically displays the products.
+
+Features include:
+
+- REST API integration
 - Dynamic product rendering
-- Product categories
-- Product search
+- Product images
+- Product descriptions
+- Product pricing
+- Category filtering
+- Search functionality
 - Price sorting
 - Alphabetical sorting
 - Loading skeleton
 - API error handling
-- Responsive product grid
-
-### 🔐 Authentication Simulation
-
-- Login interface
-- Email validation
-- Password validation
-- Login state persistence
-- Logout functionality
-- User-specific order history
-- Client-side authentication simulation using `localStorage`
-
-### 🛒 Shopping Cart
-
-- Add products to cart
-- Remove products from cart
-- Cart item count
-- Automatic cart total
-- Clear cart functionality
-- Persistent cart state using `localStorage`
-
-### 📦 Order Management
-
-- Checkout simulation
-- Automatic order creation
-- Order ID generation
-- Order date
-- Order status
-- Order total
-- User-specific order history
-- Persistent order data
-
-### ⚙️ Product CRUD
-
-The application includes client-side product management:
-
-- Create products
-- Read products
-- Update products
-- Delete products
-- Persistent product storage
-
-### 📱 Responsive Design
-
-The interface is designed for:
-
-- Mobile
-- Tablet
-- Laptop
-- Desktop
-
-Responsive breakpoints are implemented using CSS media queries.
-
-### ♿ Accessibility
-
-The application includes:
-
-- Semantic HTML
-- Accessible labels
-- Keyboard focus states
-- ARIA attributes where appropriate
-- Responsive controls
-- Descriptive image alt text
+- Responsive product cards
 
 ---
 
-## 🧰 Technology Stack
+## 🔎 Search & Filtering
 
-### Frontend
+Users can quickly find products using the search and filtering system.
 
-- HTML5
-- CSS3
-- JavaScript ES6+
+### Search
 
-### API
+Users can search products by their names.
 
-- Fake Store API
-- REST API
-- Fetch API
-- Async/Await
+### Categories
 
-### Browser Storage
+Products can be filtered according to their categories.
 
-- LocalStorage
+### Sorting
 
-### Development
+Available sorting options include:
 
-- Git
-- GitHub
-- Visual Studio Code
+- Default
+- Price: Low to High
+- Price: High to Low
+- Name: A to Z
 
-### Deployment
-
-- Vercel
+All filtering and sorting operations update the DOM dynamically without reloading the page.
 
 ---
 
-## 🏗️ Project Architecture
+# 🔐 Authentication Simulation
+
+ShopNest includes a simulated authentication system.
+
+Users can:
+
+- Login
+- Logout
+- Maintain login state
+- Access their account
+- View their order history
+
+Authentication state is stored using browser `localStorage`.
+
+### Demo Login
 
 ```text
-                         ┌─────────────────────┐
-                         │       Browser       │
-                         │     ShopNest UI     │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │      app.js         │
-                         │ Application Logic   │
-                         └──────────┬──────────┘
-                                    │
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-       ┌────────────┐        ┌────────────┐        ┌────────────┐
-       │  api.js    │        │  auth.js   │        │  cart.js   │
-       │ REST API   │        │   Login    │        │   Cart     │
-       └─────┬──────┘        └─────┬──────┘        └─────┬──────┘
-             │                     │                     │
-             ▼                     ▼                     ▼
-       Fake Store API        LocalStorage           LocalStorage
-                                   
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-       ┌────────────┐        ┌────────────┐        ┌────────────┐
-       │ products.js│        │ orders.js  │        │ LocalStorage│
-       │ CRUD/Filter│        │   Orders   │        │ Persistence │
-       └────────────┘        └────────────┘        └────────────┘
+Email:
+demo@gmail.com
+
+Password:
+123456
