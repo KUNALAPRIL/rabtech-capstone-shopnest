@@ -11,7 +11,7 @@ The project brings together the major concepts covered during the internship, in
 ## 🚀 Live Demo
 
 **Live Application:**  
-Coming soon — Vercel deployment
+https://rabtech-capstone-shopnest.vercel.app
 
 **GitHub Repository:**  
 https://github.com/KUNALAPRIL/rabtech-capstone-shopnest
