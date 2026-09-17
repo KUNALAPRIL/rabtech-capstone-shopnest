@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ShopNest - A modern production-ready e-commerce web application"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
+    <title>
+        ShopNest | Modern E-Commerce
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+
+            <!-- Logo -->
+
+            <a
+                href="#home"
+                class="logo"
+                aria-label="ShopNest home"
+            >
+                ShopNest
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav
+                class="main-nav"
+                aria-label="Main navigation"
+            >
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#orders">
+                    Orders
+                </a>
+
+                <a href="#account">
+                    Account
+                </a>
+
+            </nav>
+
+
+            <!-- Header Actions -->
+
+            <div class="header-actions">
+
+                <button
+                    id="loginButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Login
+                </button>
+
+
+                <button
+                    id="cartButton"
+                    class="cart-button"
+                    type="button"
+                    aria-label="Open shopping cart"
+                >
+
+                    🛒 Cart
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
+
+        <section
+            id="home"
+            class="hero"
+        >
+
+            <div class="container hero-content">
+
+
+                <div class="hero-text">
+
+                    <p class="eyebrow">
+                        Modern Shopping Experience
+                    </p>
+
+
+                    <h1>
+                        Everything you need,
+                        in one place.
+                    </h1>
+
+
+                    <p>
+                        Discover quality products,
+                        manage your shopping cart,
+                        and track your orders
+                        with a simple and responsive
+                        shopping experience.
+                    </p>
+
+
+                    <a
+                        href="#products"
+                        class="primary-button"
+                    >
+                        Shop Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PRODUCTS SECTION
+        ====================================== -->
+
+        <section
+            id="products"
+            class="products-section"
+        >
+
+            <div class="container">
+
+
+                <!-- Section Heading -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Our Store
+                        </p>
+
+                        <h2>
+                            Explore Products
+                        </h2>
+
+                    </div>
+
+
+                    <p id="resultCount">
+                        Loading products...
+                    </p>
+
+                </div>
+
+
+
+                <!-- Product Controls -->
+
+                <div class="product-controls">
+
+
+                    <!-- Search -->
+
+                    <div class="search-group">
+
+                        <label for="searchInput">
+                            Search products
+                        </label>
+
+                        <input
+                            id="searchInput"
+                            type="search"
+                            placeholder="Search products..."
+                            autocomplete="off"
+                            aria-label="Search products"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Sorting -->
+
+                    <div class="sort-group">
+
+                        <label for="sortSelect">
+                            Sort by
+                        </label>
+
+                        <select
+                            id="sortSelect"
+                            aria-label="Sort products"
+                        >
+
+                            <option value="default">
+                                Default
+                            </option>
+
+                            <option value="price-low">
+                                Price: Low to High
+                            </option>
+
+                            <option value="price-high">
+                                Price: High to Low
+                            </option>
+
+                            <option value="name">
+                                Name: A to Z
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Categories -->
+
+                <div class="category-section">
+
+                    <h3>
+                        Categories
+                    </h3>
+
+
+                    <div
+                        id="categoryButtons"
+                        class="category-buttons"
+                    >
+
+                        <button
+                            class="category-button active"
+                            type="button"
+                            data-category="all"
+                        >
+                            All
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Error -->
+
+                <div
+                    id="errorBanner"
+                    class="error-banner"
+                    role="alert"
+                    hidden
+                >
+                    Unable to load products.
+                </div>
+
+
+
+                <!-- Loading Skeleton -->
+
+                <div
+                    id="loading"
+                    class="loading-grid"
+                    aria-label="Loading products"
+                >
+
+                    <div
+                        class="skeleton"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div
+                        class="skeleton"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div
+                        class="skeleton"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div
+                        class="skeleton"
+                        aria-hidden="true"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- Product Grid -->
+
+                <div
+                    id="productGrid"
+                    class="product-grid"
+                    aria-live="polite"
+                >
+                </div>
+
+
+
+                <!-- No Results -->
+
+                <p
+                    id="noResults"
+                    class="no-results"
+                    hidden
+                >
+                    No products found.
+                    Try a different search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ORDERS SECTION
+        ====================================== -->
+
+        <section
+            id="orders"
+            class="info-section"
+        >
+
+            <div class="container">
+
+                <div class="info-card">
+
+                    <p class="eyebrow">
+                        Your Activity
+                    </p>
+
+
+                    <h2>
+                        Orders
+                    </h2>
+
+
+                    <p id="ordersMessage">
+                        Login to view your order history.
+                    </p>
+
+
+                    <div id="orderList">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ACCOUNT SECTION
+        ====================================== -->
+
+        <section
+            id="account"
+            class="info-section"
+        >
+
+            <div class="container">
+
+                <div class="info-card">
+
+                    <p class="eyebrow">
+                        Account
+                    </p>
+
+
+                    <h2>
+                        My Account
+                    </h2>
+
+
+                    <div id="accountContent">
+
+                        <p>
+                            You are currently browsing
+                            as a guest.
+                        </p>
+
+
+                        <button
+                            id="accountLoginButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Login
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         SHOPPING CART DIALOG
+    ========================================== -->
+
+    <dialog
+        id="cartDialog"
+        class="cart-dialog"
+    >
+
+
+        <div class="dialog-header">
+
+            <h2>
+                Shopping Cart
+            </h2>
+
+
+            <button
+                id="closeCart"
+                class="close-button"
+                type="button"
+                aria-label="Close shopping cart"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- Cart Items -->
+
+        <div
+            id="cartItems"
+            class="cart-items"
+            aria-live="polite"
+        >
+
+            <p>
+                Your cart is empty.
+            </p>
+
+        </div>
+
+
+
+        <!-- Cart Footer -->
+
+        <div class="cart-footer">
+
+
+            <strong>
+                Total:
+                $<span id="cartTotal">0.00</span>
+            </strong>
+
+
+            <button
+                id="checkoutButton"
+                class="primary-button"
+                type="button"
+            >
+                Checkout
+            </button>
+
+
+            <button
+                id="clearCart"
+                class="danger-button"
+                type="button"
+            >
+                Clear Cart
+            </button>
+
+        </div>
+
+    </dialog>
+
+
+
+    <!-- =========================================
+         LOGIN DIALOG
+    ========================================== -->
+
+    <dialog
+        id="loginDialog"
+        class="auth-dialog"
+    >
+
+
+        <div class="dialog-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    Account Access
+                </p>
+
+                <h2>
+                    Login
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeLogin"
+                class="close-button"
+                type="button"
+                aria-label="Close login dialog"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- Login Form -->
+
+        <form id="loginForm">
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                    minlength="6"
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+
+            <!-- Login Message -->
+
+            <p
+                id="loginMessage"
+                class="form-message"
+                aria-live="polite"
+            >
+            </p>
+
+
+
+            <!-- Submit -->
+
+            <button
+                class="primary-button full-width"
+                type="submit"
+            >
+                Login
+            </button>
+
+
+            <p class="demo-note">
+                Demo authentication:
+                use any valid email and
+                a password with at least
+                6 characters.
+            </p>
+
+        </form>
+
+    </dialog>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+
+            <p>
+                <strong>
+                    ShopNest
+                </strong>
+                &copy; 2026
+            </p>
+
+
+            <p>
+                RabTech Academy Production Capstone
+            </p>
+
+
+            <p>
+                Built with HTML, CSS,
+                JavaScript and REST API integration.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script
+        type="module"
+        src="js/app.js"
+    ></script>
+
+</body>
+
+</html>
